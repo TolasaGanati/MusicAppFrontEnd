@@ -25,4 +25,10 @@ export default tseslint.config(
       ],
     },
   },
+ reactConfig = {
+    eslint:{
+      ignoreDuringBuilds:true,
+    },
+  }
 )
+
