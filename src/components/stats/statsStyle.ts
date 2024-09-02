@@ -10,7 +10,7 @@ export const StatsContainer = styled.div`
   max-height: 60vh; 
   position: fixed;
   right: 50; 
-  top: 60%; 
+  top: 65%; 
   background-color: #f8f9fa; 
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);

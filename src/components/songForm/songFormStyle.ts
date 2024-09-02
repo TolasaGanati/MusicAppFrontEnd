@@ -5,25 +5,29 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 20px;
+  height: auto; 
+  max-height: 200px;
 `;
 
 export const Form = styled.form`
   margin: 20px 0;
+  margin-top: -10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
   width: 100%;
   max-width: 400px;
+  
 `;
 
 export const Input = styled.input`
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom:20px;
+  border-radius: 3px;
+  margin-bottom:24px;
 `;
 
 export const Button = styled.button`
@@ -41,7 +45,7 @@ export const Button = styled.button`
   }
 
   &:first-of-type {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     margin-top: -20px;
   }
 `;
