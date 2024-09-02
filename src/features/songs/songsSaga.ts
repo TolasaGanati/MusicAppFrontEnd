@@ -22,6 +22,6 @@ function* fetchStatsSaga(): Generator<unknown, void, Statis> {
 }
 
 export function* songsSaga() {
-  yield takeEvery(fetchSongs.type, fetchSongsSaga);
-  yield takeEvery(fetchStats.type, fetchStatsSaga);
+ yield takeEvery(fetchSongs.fulfilled.type, fetchSongsSaga);
+ yield takeEvery(fetchStats.type, fetchStatsSaga);
 }

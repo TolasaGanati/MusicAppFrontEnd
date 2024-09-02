@@ -1,5 +1,5 @@
 export interface Songs {
-  id: string;
+  _id: string;
   title: string;
   artist: string;
   album: string;
@@ -11,8 +11,9 @@ export interface Statis {
   totalArtists: number;
   totalAlbums: number;
   totalGenres: number;
-  songsPerGenre: Record<string, number>; 
-  songsPerArtist: Record<string, number>; 
-  albumsPerArtist: Record<string, number>; 
+  songsPerGenre: Record<string, number>;
+  songsPerArtist: Record<string, number>;
+  albumsPerArtist: Record<string, number>;
+  songsPerAlbum: Record<string, number>;
 }
 
