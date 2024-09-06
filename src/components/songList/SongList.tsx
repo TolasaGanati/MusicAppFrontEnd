@@ -92,7 +92,8 @@ const SongList: React.FC<SongListProps> = ({}) => {
     }
   };
 
-  const filteredSongs = selectedGenre
+const filteredSongs =
+  Array.isArray(songs) && selectedGenre
     ? songs.filter((song) =>
         song.genre.toLowerCase().includes(selectedGenre.toLowerCase())
       )

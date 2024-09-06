@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const initialState: SongsState = {
   songs: [],
   stats: {
@@ -20,9 +22,16 @@ const initialState: SongsState = {
 export const fetchSongs = createAsyncThunk(
   "songs/fetchSongs",
   async (_, { rejectWithValue }) => {
+    console.log("Fetching songs..."); // Confirm this is executed
+    console.log("API_BASE_URL:", API_BASE_URL); // Confirm the API base URL
+
     try {
-      const response = await axios.get("/api/songs");
-      console.log("API response:", response.data);
+      const response = await axios.get(`/api/songs`);
+      console.log("=======API response:", response.data);
+
+      if (!Array.isArray(response.data)) {
+        throw new Error("Data is not an array");
+      }
       return response.data as Song[];
     } catch (error) {
       console.error("Error fetching songs:", error);
@@ -33,6 +42,11 @@ export const fetchSongs = createAsyncThunk(
     }
   }
 );
+
+
+
+
+
 
 export const deleteSong = createAsyncThunk(
   "songs/deleteSong",
@@ -98,7 +112,7 @@ const songsSlice = createSlice({
       .addCase(fetchSongs.fulfilled, (state, action: PayloadAction<Song[]>) => {
         console.log("Fetched songs:", action.payload);
         state.status = "idle";
-        state.songs = action.payload;
+        state.songs = Array.isArray(action.payload) ? action.payload : [];
         calculateStats(state);
       })
       .addCase(fetchSongs.rejected, (state, action) => {
