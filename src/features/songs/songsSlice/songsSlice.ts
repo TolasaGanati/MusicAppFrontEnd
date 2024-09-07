@@ -69,7 +69,7 @@ export const updateSong = createAsyncThunk(
   async (updatedSong: Song, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `${API_BASE_URL}/api/songs/${updatedSong._id}`,
+        `/api/songs/${updatedSong._id}`,
         updatedSong
       );
       return response.data as Song;
