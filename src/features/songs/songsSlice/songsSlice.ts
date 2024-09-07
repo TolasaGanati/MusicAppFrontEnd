@@ -52,7 +52,7 @@ export const deleteSong = createAsyncThunk(
   "songs/deleteSong",
   async (songId: string, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API_BASE_URL}/api/songs/${songId}`);
+      await axios.delete(`/api/songs/${songId}`);
       return songId;
     } catch (error) {
       console.error("Error deleting song:", error);
@@ -69,7 +69,7 @@ export const updateSong = createAsyncThunk(
   async (updatedSong: Song, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `${API_BASE_URL}/api/songs/${updatedSong._id}`,
+        `/api/songs/${updatedSong._id}`,
         updatedSong
       );
       return response.data as Song;
