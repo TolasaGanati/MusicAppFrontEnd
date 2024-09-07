@@ -26,7 +26,7 @@ export const fetchSongs = createAsyncThunk(
     console.log("=====API_BASE_URL:", API_BASE_URL); // Confirm the API base URL
 
     try {
-      const response = await axios.get(`/api/songs`);
+      const response = await axios.get(`${API_BASE_URL}/api/songs`);
       console.log("=======API response:", response.data);
 
       if (!Array.isArray(response.data)) {
