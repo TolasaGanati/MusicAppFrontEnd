@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://musicappbackend-3pzq.onrender.com/api/$1"
+    }
+  ]
+}
