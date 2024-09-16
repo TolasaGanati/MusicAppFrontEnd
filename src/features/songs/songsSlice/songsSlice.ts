@@ -22,8 +22,8 @@ const initialState: SongsState = {
 export const fetchSongs = createAsyncThunk(
   "songs/fetchSongs",
   async (_, { rejectWithValue }) => {
-    console.log("Fetching songs..."); // Confirm this is executed
-    console.log("=====API_BASE_URL:", API_BASE_URL); // Confirm the API base URL
+    console.log("Fetching songs..."); 
+    console.log("=====API_BASE_URL:", API_BASE_URL); 
 
     try {
       const response = await axios.get(`/api/songs`);
@@ -42,8 +42,6 @@ export const fetchSongs = createAsyncThunk(
     }
   }
 );
-
-
 
 
 export const deleteSong = createAsyncThunk(
@@ -80,8 +78,6 @@ export const updateSong = createAsyncThunk(
     }
   }
 );
-
-
 
 const songsSlice = createSlice({
   name: "songs",
@@ -205,7 +201,6 @@ export interface Song {
   album: string;
   genre: string;
 }
-
 export interface Stats {
   totalSongs: number;
   totalArtists: number;
@@ -216,7 +211,6 @@ export interface Stats {
   albumsPerArtist: Record<string, number>;
   songsPerAlbum: Record<string, number>;
 }
-
 export interface SongsState {
   songs: Song[];
   stats: Stats;

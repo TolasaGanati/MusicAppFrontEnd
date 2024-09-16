@@ -6,9 +6,8 @@ export const StatsContainer = styled.div`
   padding: 20px;
   width: 90%;
   max-width: 1000px;
-  height: auto; 
-  max-height: 60vh; 
-  position: fixed;
+  height: 94%; 
+  max-height: 100vh; 
   right: 50; 
   top: 65%; 
   background-color: #f8f9fa; 

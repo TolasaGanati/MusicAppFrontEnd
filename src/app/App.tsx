@@ -6,27 +6,37 @@ import store from "../store/configureStore";
 import SongList from "../components/songList/SongList";
 import SongForm from "../components/songForm/SongForm";
 import Stats from "../components/stats/Stats";
-import { Container, Header, ContentWrapper } from "./appStyle";
+import {
+  Container,
+  Header,
+  ContentWrapper,
+  SongListContainer,
+  StatsContainer,
+} from "./appStyle";
 
 const App: React.FC = () => {
-  const dispatch = useDispatch<typeof store.dispatch>(); 
+  const dispatch = useDispatch<typeof store.dispatch>();
 
   useEffect(() => {
-    dispatch(fetchSongs()); 
+    dispatch(fetchSongs());
   }, [dispatch]);
 
   return (
     <Provider store={store}>
       <Container>
-        <Header>Songs Crud App</Header>
+        <Header>Songs CRUD App</Header>
         <ContentWrapper>
-          <SongForm
-            onClose={() => {
-              console.log("Song form closed");
-            }}
-          />
-          <SongList song={[]} />
-          <Stats />
+          <SongListContainer>
+            <SongForm
+              onClose={() => {
+                console.log("Song form closed");
+              }}
+            />
+            <SongList song={[]} />
+          </SongListContainer>
+          <StatsContainer>
+            <Stats />
+          </StatsContainer>
         </ContentWrapper>
       </Container>
     </Provider>
